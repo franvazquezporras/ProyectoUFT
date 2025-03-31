@@ -1,0 +1,78 @@
+﻿'================VARIABLES================'
+Dim f_FactorDelay : f_FactorDelay = 1.5
+Dim i_TimeMax : i_TimeMax = 180
+Dim i_WaitElement : i_WaitElement = 60
+'================FUNCTIONS==============='
+'================Browser================'
+Function Setup(BrowserName,UrlTarget)
+	If Browser("miclass:=Browser").Exist(1) Then
+		Browser("miclass:=Browser").Quit
+	End If
+	
+	KillAllBrowsers()
+	
+	Select Case LCase(BrowserName)
+		Case "ie"
+			SystemUtil.Run "iexpore.exe", UrlTarget
+		Case "chrome"
+			SystemUtil.Run "chrome.exe", UrlTarget
+		Case "firefox"
+			SystemUtil.Run "firefox.exe", UrlTarget
+		Case "edge"
+			SystemUtil.Run "msedge.exe", UrlTarget
+	End Select
+	WaitExt(4)
+End Function
+
+
+Function KillAllBrowser()
+	Dim obj_ScriptSell
+	Set obj_ScriptShell = CreateObject("Wscript.Shell")
+	obj_ScriptShell.Run "taskkill /f /im iexplore.exe", 0, true
+	obj_ScriptShell.Run "taskkill /f /im edge.exe", 0, true
+	obj_ScriptShell.Run "taskkill /f /im chrome.exe", 0, true
+	obj_ScriptShell.Run "taskkill /f /im firefox.exe", 0, true
+	Set obj_ScriptShell = nothing
+End Function
+
+
+Function Quit()
+	'Browser.Quit
+End Function
+
+
+'================Checks================'
+Function WaitExt(i_TimeEntry)
+	Dim i_WaitTime : i_WaitTime = 0
+
+	If (i_TimeEntry * f_FactorDelay > i_TimeMax) Then
+		i_WaitTime = i_TimeMax
+	Else
+		i_WaitTime = i_TimeEntry * f_FactorDelay
+	End If
+	Wait i_WaitTime
+End Function
+
+
+Function CheckVisibility(WebElement, i_WaitElem )
+	If WebElement.Exist(i_WaitElem) Then
+		ReportOK "Check objects", "The element is visible"
+	Else
+		ReportKO "Check objects", "The element is not visible"
+	End If
+End Function
+
+
+'================Log and Report================'
+Function ReportOK(str_Functionality, str_Msg)
+	Reporter.ReportEvent micPass, functionality,msg
+	print("Step:" &str_Functionality&" - Message: "& str_Msg)
+End Function
+
+
+Function ReportKO(str_Functionality,str_Msg)
+	Reporter.ReportEvent micFail, str_Functionality,str_Msg
+	print("Step:" &str_Functionality&" - Message: "& str_Msg)
+	ExitTest
+	quit()
+End Function
