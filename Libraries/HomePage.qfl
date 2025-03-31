@@ -1,0 +1,38 @@
+﻿'========Browser_Browser=============='
+Dim Browser_Chrome 
+
+'=============URL_Page================'
+Dim URL_Advantage 
+
+'============L_Link================'
+Dim L_LogoHome
+Dim L_OurProducts
+Dim L_SpecialOffer
+Dim L_PopularItem
+Dim L_ContactUs
+Dim L_UserMenu
+Dim L_ShoppingCart
+Dim L_AboutAOS
+
+'=========W_WebElement=========='
+Dim W_Search
+
+Function initializeHomePage()
+	Set Browser_Chrome = Browser("micclass:=Browser")
+	
+	Set URL_Advantage = Browser_Chrome.Page("micclass:=page")
+	
+	Set L_LogoHome = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","name:=dvantage DEMO ")
+	Set L_OurProducts = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","name:=OUR PRODUCTS")
+	Set L_SpecialOffer = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","name:=SPECIAL OFFER")
+	Set L_PopularItem = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","name:=POPULAR ITEMS")
+	Set L_ContactUs = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","name:=CONTACT US")
+	Set L_UserMenu = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","html id:=menuUserLink")
+	Set L_ShoppingCart = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","html id:=shoppingCartLink")
+	Set L_AboutAOS = Browser_Chrome.URL_Advantage.Link("Class Name:=Link","name:=About AOS Versions Management Console ")
+	
+	
+	Set W_Search = Browser_Chrome.URL_Advantage.WebElement("Class Name:=WebElement","html id:=search")
+End Function
+
+
