@@ -52,3 +52,28 @@ Function initializeLoginPage()
 	Set L_ForgotPasswordLogin = URL_Advantage.Link("Class Name:=Link","name:=Forgot your password?")
 	Set L_CreateNewAccountLogin = URL_Advantage.Link("Class Name:=Link","name:=CREATE NEW ACCOUNT")
 End  Function	
+
+
+Function CleanLoginPage()
+	Set Browser_Chrome = Nothing
+	Set URL_Advantage = Nothing
+	
+	Set I_Logo = Nothing
+	
+	Set W_SignInWithFacebook = Nothing
+	Set W_OrText = Nothing
+	Set W_UsernameLoginText = Nothing
+	Set W_PasswordLoginText = Nothing
+	Set W_RememberMeText = Nothing
+	Set W_CloseWindowsLogin = Nothing
+	
+	Set E_UsernameLogin = Nothing
+	Set E_PasswordLogin = Nothing
+	
+	Set C_RememberMeLogin = Nothing
+	
+	Set B_SignInLogin = Nothing
+	
+	Set L_ForgotPasswordLogin = Nothing
+	Set L_CreateNewAccountLogin = Nothing
+End Function
