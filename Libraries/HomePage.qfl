@@ -124,6 +124,7 @@ Function initializeHomePage()
 	Set E_SubjectContactUs = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=subjectTextareaContactUs")
 End Function
 
+
 Function CleanHomePage()
 	Set Browser_Chrome = Nothing
 	Set URL_Advantage = Nothing
