@@ -1,0 +1,54 @@
+﻿'========Browser_Browser=============='
+Dim Browser_Chrome 
+
+'=============URL_Page================'
+Dim URL_Advantage 
+
+'=============I_Image================'
+Dim I_Logo
+
+'=============W_WebElement================'
+Dim W_SignInWithFacebook
+Dim W_OrText
+Dim W_UsernameLoginText, W_PasswordLoginText
+Dim W_RememberMeText
+Dim W_CloseWindowsLogin
+
+'=============E_WebEdit================'
+Dim E_UsernameLogin, E_PasswordLogin
+
+'=============C_WebCheckBox==========='
+Dim C_RememberMeLogin
+
+'=============B_WebButton============='
+Dim B_SignInLogin
+
+'=============L_WebLink================'
+Dim L_ForgotPasswordLogin
+Dim L_CreateNewAccountLogin
+
+
+Function initializeLoginPage()
+	Set Browser_Chrome = Browser("micclass:=Browser")
+	
+	Set URL_Advantage = Browser_Chrome.Page("micclass:=page")
+	
+	Set I_Logo = URL_Advantage.Image("Class Name:=Image","file name:=logo.png")
+	
+	Set W_SignInWithFacebook = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=SIGN IN WITH FACEBOOK")
+	Set W_OrText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=OR")
+	Set W_UsernameLoginText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Username")
+	Set W_PasswordLoginText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Password")
+	Set W_RememberMeText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=REMEMBER ME")
+	Set W_CloseWindowsLogin = URL_Advantage.WebElement("Class Name:=WebElement","class:=closeBtn loginPopUpCloseBtn")
+	
+	Set E_UsernameLogin = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=username")
+	Set E_PasswordLogin = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=password")
+	
+	Set C_RememberMeLogin = URL_Advantage.WebCheckBox("Class Name:=WebCheckBox","name:=remember_me")
+	
+	Set B_SignInLogin = URL_Advantage.WebButton("Class Name:=WebButton","name;=SIGN IN")
+	
+	Set L_ForgotPasswordLogin = URL_Advantage.Link("Class Name:=Link","name:=Forgot your password?")
+	Set L_CreateNewAccountLogin = URL_Advantage.Link("Class Name:=Link","name:=CREATE NEW ACCOUNT")
+End  Function	
