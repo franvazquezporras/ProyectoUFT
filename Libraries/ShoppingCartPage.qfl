@@ -1,0 +1,18 @@
+﻿'=============URL_Page================'
+Dim URL_AdvantageShoppingCart 
+
+'=============W_WebElement==========='
+Dim W_ShoppingCartTitle
+Dim W_EmptyCartText
+
+'=============L_Link==========='
+Dim L_ContinueShopping
+
+Function initializeCommonPage()
+	Set URL_AdvantageShoppingCart = Browser("micclass:=Browser").Page("micclass:=page")
+	
+	Set W_ShoppingCartTitle = URL_AdvantageShoppingCart.WebElement("Class Name:=WebElement","xpath:=//DIV[3]/SECTION[1]/ARTICLE[1]/H3[1]")
+	Set W_EmptyCartText = URL_AdvantageShoppingCart.WebElement("Class Name:=WebElement","outertext:=Your shopping cart is empty")
+	
+	Set L_ContinueShopping = URL_AdvantageShoppingCart.Link("Class Name:=Link","name:=CONTINUE SHOPPING")
+End  Function
