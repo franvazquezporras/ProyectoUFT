@@ -1,0 +1,60 @@
+﻿'=============URL_Page================'
+Dim URL_AdvantageCommon
+
+'============L_Link================'
+Dim L_LogoHome
+Dim L_OurProducts, L_SpecialOffer, L_PopularItem, L_ContactUs
+Dim L_UserMenu, L_ShoppingCart, L_AboutAOS
+
+'=========W_WebElement=========='
+Dim W_Search
+Dim W_FollowUsTitle
+Dim W_AdvantageRelease
+
+'=========I_Image=========='
+Dim I_Facebook, I_Twitter, I_Linkedin
+
+
+Function initializeCommonPage()
+	Set URL_AdvantageCommon = Browser("micclass:=Browser").Page("micclass:=page")
+	
+	Set L_LogoHome =URL_AdvantageCommon.Link("Class Name:=Link","name:=dvantage DEMO ")
+	Set L_OurProducts = URL_AdvantageCommon.Link("Class Name:=Link","name:=OUR PRODUCTS")
+	Set L_SpecialOffer = URL_AdvantageCommon.Link("Class Name:=Link","name:=SPECIAL OFFER")
+	Set L_PopularItem = URL_AdvantageCommon.Link("Class Name:=Link","name:=POPULAR ITEMS")
+	Set L_ContactUs = URL_AdvantageCommon.Link("Class Name:=Link","name:=CONTACT US")
+	Set L_UserMenu = URL_AdvantageCommon.Link("Class Name:=Link","html id:=menuUserLink")
+	Set L_ShoppingCart = URL_AdvantageCommon.Link("Class Name:=Link","html id:=shoppingCartLink")
+	Set L_AboutAOS = URL_AdvantageCommon.Link("Class Name:=Link","name:=About AOS Versions Management Console ")
+	
+	Set W_Search = URL_AdvantageCommon.WebElement("Class Name:=WebElement","html id:=search")
+	Set W_FollowUsTitle = URL_AdvantageCommon.WebElement("Class Name:=WebElement","innertext:=FOLLOW US")
+	Set W_AdvantageRelease = URL_AdvantageCommon.WebElement("Class Name:=WebElement","innertext:=© Advantage Inc, 2024. Release 3.3 ")
+	
+	Set I_Facebook = URL_AdvantageCommon.Image("Class Name:=Image","file name:=facebook.png")
+	Set I_Twitter = URL_AdvantageCommon.Image("Class Name:=Image","file name:=twitter.png")
+	Set I_Linkedin = URL_AdvantageCommon.Image("Class Name:=Image","file name:=linkedin.png")
+End Function
+
+
+Function CleanCommonPage()
+	Set Browser_Chrome = Nothing
+    Set URL_AdvantageCommon = Nothing
+
+    Set L_LogoHome = Nothing
+    Set L_OurProducts = Nothing
+    Set L_SpecialOffer = Nothing
+    Set L_PopularItem = Nothing
+    Set L_ContactUs = Nothing
+    Set L_UserMenu = Nothing
+    Set L_ShoppingCart = Nothing
+    Set L_AboutAOS = Nothing
+
+    Set W_Search = Nothing
+    Set W_FollowUsTitle = Nothing
+    Set W_AdvantageRelease = Nothing
+
+    Set I_Facebook = Nothing
+    Set I_Twitter = Nothing
+    Set I_Linkedin = Nothing
+End Function
