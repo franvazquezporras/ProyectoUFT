@@ -1,8 +1,5 @@
-﻿'========Browser_Browser=============='
-Dim Browser_Chrome 
-
-'=============URL_Page================'
-Dim URL_Advantage 
+﻿'=============URL_Page================'
+Dim URL_AdvantageRegister 
 
 '=============W_WebElement================'
 Dim W_CreateAccountTitle
@@ -33,48 +30,92 @@ Dim B_Register
 Dim L_AlreadyHaveAnAccount
 
 Function InicializeRegisterPage()
-	Set Browser_Chrome = Browser("micclass:=Browser")
+	Set URL_AdvantageRegister = Browser("micclass:=Browser").Page("micclass:=page")
 	
-	Set URL_Advantage = Browser_Chrome.Page("micclass:=page")
+	Set W_CreateAccountTitle = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=CREATE ACCOUNT")
+	Set W_NoticeTitle = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=NOTICE")
+	Set W_NoticeText1 = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=This is a demo site.")
+	Set W_NoticeText2 = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Do not use real data.")
+	Set W_AccountDetailsTitle = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=ACCOUNT DETAILS")
+	Set W_UsernameTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Username")
+	Set W_EmailTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Email")
+	Set W_PasswordTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Password")
+	Set W_ConfirmPasswordTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Confirm password")
+	Set W_PersonalDetailsTitle = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=PERSONAL DETAILS")
+	Set W_FirstNameTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=First Name")
+	Set W_LastNameTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Last Name")
+	Set W_PhoneNumberTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Phone Number")
+	Set W_CityTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=City")
+	Set W_AddressTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Address")
+	Set W_StateTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=State / Province / Region")
+	Set W_PostalCodeTextRegister = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Postal Code")
+	Set W_AllowOfferPromotion = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=Receive exclusive offers and promotions from Advantage")
+	Set W_IAgree = URL_AdvantageRegister.WebElement("Class Name:=WebElement","innertext:=I agree to the www.AdvantageOnlineShopping.com Conditions of Use and Privacy Notice")
 	
-	Set W_CreateAccountTitle = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=CREATE ACCOUNT")
-	Set W_NoticeTitle = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=NOTICE")
-	Set W_NoticeText1 = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=This is a demo site.")
-	Set W_NoticeText2 = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Do not use real data.")
-	Set W_AccountDetailsTitle = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=ACCOUNT DETAILS")
-	Set W_UsernameTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Username")
-	Set W_EmailTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Email")
-	Set W_PasswordTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Password")
-	Set W_ConfirmPasswordTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Confirm password")
-	Set W_PersonalDetailsTitle = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=PERSONAL DETAILS")
-	Set W_FirstNameTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=First Name")
-	Set W_LastNameTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Last Name")
-	Set W_PhoneNumberTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Phone Number")
-	Set W_CityTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=City")
-	Set W_AddressTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Address")
-	Set W_StateTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=State / Province / Region")
-	Set W_PostalCodeTextRegister = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Postal Code")
-	Set W_AllowOfferPromotion = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Receive exclusive offers and promotions from Advantage")
-	Set W_IAgree = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=I agree to the www.AdvantageOnlineShopping.com Conditions of Use and Privacy Notice")
+	Set E_UsernameRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=usernameRegisterPage")
+	Set E_EmailRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=emailRegisterPage")
+	Set E_PasswordRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=passwordRegisterPage")
+	Set E_ConfirmPasswordRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=confirm_passwordRegisterPage")
+	Set E_FirstNameRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=first_nameRegisterPage")
+	Set E_LastNameRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=last_nameRegisterPage")
+	Set E_PhoneNumberRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=phone_numberRegisterPage")
+	Set E_CityRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=cityRegisterPage")
+	Set E_AddressRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=addressRegisterPage")
+	Set E_StateRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=state_/_province_/_regionRegisterPage")
+	Set E_PostalCodeRegister = URL_AdvantageRegister.WebEdit("Class Name:=WebEdit","name:=postal_codeRegisterPage")
 	
-	Set E_UsernameRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=usernameRegisterPage")
-	Set E_EmailRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=emailRegisterPage")
-	Set E_PasswordRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=passwordRegisterPage")
-	Set E_ConfirmPasswordRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=confirm_passwordRegisterPage")
-	Set E_FirstNameRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=first_nameRegisterPage")
-	Set E_LastNameRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=last_nameRegisterPage")
-	Set E_PhoneNumberRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=phone_numberRegisterPage")
-	Set E_CityRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=cityRegisterPage")
-	Set E_AddressRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=addressRegisterPage")
-	Set E_StateRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=state_/_province_/_regionRegisterPage")
-	Set E_PostalCodeRegister = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=postal_codeRegisterPage")
+	Set D_CountryRegister = URL_AdvantageRegister.WebList("Class Name:=WebList","name:=countryListboxRegisterPage")
 	
-	Set D_CountryRegister = URL_Advantage.WebList("Class Name:=WebList","name:=countryListboxRegisterPage")
+	Set C_AllowOfferPromotion = URL_AdvantageRegister.WebCheckBox("Class Name:=WebCheckBox","name:=allowOffersPromotion")
+	Set C_IAgree = URL_AdvantageRegister.WebCheckBox("Class Name:=WebCheckBox","name:=i_agree")
 	
-	Set C_AllowOfferPromotion = URL_Advantage.WebCheckBox("Class Name:=WebCheckBox","name:=allowOffersPromotion")
-	Set C_IAgree = URL_Advantage.WebCheckBox("Class Name:=WebCheckBox","name:=i_agree")
+	Set B_Register = URL_AdvantageRegister.WebButton("Class Name:=WebButton","name:=REGISTER")
 	
-	Set B_Register = URL_Advantage.WebButton("Class Name:=WebButton","name:=REGISTER")
-	
-	Set L_AlreadyHaveAnAccount = URL_Advantage.Link("Class Name:=Link","name:=ALREADY HAVE AN ACCOUNT?")
+	Set L_AlreadyHaveAnAccount = URL_AdvantageRegister.Link("Class Name:=Link","name:=ALREADY HAVE AN ACCOUNT?")
+End Function
+
+Function CleanRegisterPage()
+'    Set Browser_Chrome = Nothing
+'    Set URL_AdvantageRegister = Nothing
+
+    Set W_CreateAccountTitle = Nothing
+    Set W_NoticeTitle = Nothing
+    Set W_NoticeText1 = Nothing
+    Set W_NoticeText2 = Nothing
+    Set W_AccountDetailsTitle = Nothing
+    Set W_UsernameTextRegister = Nothing
+    Set W_EmailTextRegister = Nothing
+    Set W_PasswordTextRegister = Nothing
+    Set W_ConfirmPasswordTextRegister = Nothing
+    Set W_PersonalDetailsTitle = Nothing
+    Set W_FirstNameTextRegister = Nothing
+    Set W_LastNameTextRegister = Nothing
+    Set W_PhoneNumberTextRegister = Nothing
+    Set W_CityTextRegister = Nothing
+    Set W_AddressTextRegister = Nothing
+    Set W_StateTextRegister = Nothing
+    Set W_PostalCodeTextRegister = Nothing
+    Set W_AllowOfferPromotion = Nothing
+    Set W_IAgree = Nothing
+
+    Set E_UsernameRegister = Nothing
+    Set E_EmailRegister = Nothing
+    Set E_PasswordRegister = Nothing
+    Set E_ConfirmPasswordRegister = Nothing
+    Set E_FirstNameRegister = Nothing
+    Set E_LastNameRegister = Nothing
+    Set E_PhoneNumberRegister = Nothing
+    Set E_CityRegister = Nothing
+    Set E_AddressRegister = Nothing
+    Set E_StateRegister = Nothing
+    Set E_PostalCodeRegister = Nothing
+
+    Set D_CountryRegister = Nothing
+
+    Set C_AllowOfferPromotion = Nothing
+    Set C_IAgree = Nothing
+
+    Set B_Register = Nothing
+
+    Set L_AlreadyHaveAnAccount = Nothing
 End Function
