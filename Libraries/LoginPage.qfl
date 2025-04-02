@@ -1,8 +1,5 @@
-﻿'========Browser_Browser=============='
-Dim Browser_Chrome 
-
-'=============URL_Page================'
-Dim URL_Advantage 
+﻿'=============URL_Page================'
+Dim URL_AdvantageLogin 
 
 '=============I_Image================'
 Dim I_Logo
@@ -29,34 +26,31 @@ Dim L_CreateNewAccountLogin
 
 
 Function initializeLoginPage()
-	Set Browser_Chrome = Browser("micclass:=Browser")
+	Set URL_AdvantageLogin = Browser("micclass:=Browser").Page("micclass:=page")
 	
-	Set URL_Advantage = Browser_Chrome.Page("micclass:=page")
+	Set I_Logo = URL_AdvantageLogin.Image("Class Name:=Image","file name:=logo.png")
 	
-	Set I_Logo = URL_Advantage.Image("Class Name:=Image","file name:=logo.png")
+	Set W_SignInWithFacebook = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=SIGN IN WITH FACEBOOK")
+	Set W_OrText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=OR")
+	Set W_UsernameLoginText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=Username")
+	Set W_PasswordLoginText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=Password")
+	Set W_RememberMeText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=REMEMBER ME")
+	Set W_CloseWindowsLogin = URL_AdvantageLogin.WebElement("Class Name:=WebElement","class:=closeBtn loginPopUpCloseBtn")
 	
-	Set W_SignInWithFacebook = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=SIGN IN WITH FACEBOOK")
-	Set W_OrText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=OR")
-	Set W_UsernameLoginText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Username")
-	Set W_PasswordLoginText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=Password")
-	Set W_RememberMeText = URL_Advantage.WebElement("Class Name:=WebElement","innertext:=REMEMBER ME")
-	Set W_CloseWindowsLogin = URL_Advantage.WebElement("Class Name:=WebElement","class:=closeBtn loginPopUpCloseBtn")
+	Set E_UsernameLogin = URL_AdvantageLogin.WebEdit("Class Name:=WebEdit","name:=username")
+	Set E_PasswordLogin = URL_AdvantageLogin.WebEdit("Class Name:=WebEdit","name:=password")
 	
-	Set E_UsernameLogin = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=username")
-	Set E_PasswordLogin = URL_Advantage.WebEdit("Class Name:=WebEdit","name:=password")
+	Set C_RememberMeLogin = URL_AdvantageLogin.WebCheckBox("Class Name:=WebCheckBox","name:=remember_me")
 	
-	Set C_RememberMeLogin = URL_Advantage.WebCheckBox("Class Name:=WebCheckBox","name:=remember_me")
+	Set B_SignInLogin = URL_AdvantageLogin.WebButton("Class Name:=WebButton","name;=SIGN IN")
 	
-	Set B_SignInLogin = URL_Advantage.WebButton("Class Name:=WebButton","name;=SIGN IN")
-	
-	Set L_ForgotPasswordLogin = URL_Advantage.Link("Class Name:=Link","name:=Forgot your password?")
-	Set L_CreateNewAccountLogin = URL_Advantage.Link("Class Name:=Link","name:=CREATE NEW ACCOUNT")
+	Set L_ForgotPasswordLogin = URL_AdvantageLogin.Link("Class Name:=Link","name:=Forgot your password?")
+	Set L_CreateNewAccountLogin = URL_AdvantageLogin.Link("Class Name:=Link","name:=CREATE NEW ACCOUNT")
 End  Function	
 
 
 Function CleanLoginPage()
-	Set Browser_Chrome = Nothing
-	Set URL_Advantage = Nothing
+	Set URL_AdvantageLogin = Nothing
 	
 	Set I_Logo = Nothing
 	
