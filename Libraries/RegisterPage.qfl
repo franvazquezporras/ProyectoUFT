@@ -75,8 +75,7 @@ Function InicializeRegisterPage()
 End Function
 
 Function CleanRegisterPage()
-'    Set Browser_Chrome = Nothing
-'    Set URL_AdvantageRegister = Nothing
+   Set URL_AdvantageRegister = Nothing
 
     Set W_CreateAccountTitle = Nothing
     Set W_NoticeTitle = Nothing
