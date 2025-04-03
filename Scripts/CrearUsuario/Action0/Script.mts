@@ -1,1 +1,2 @@
-﻿RunAction "Action1", oneIteration
+﻿RunAction "CrearUsuario", oneIteration
+RunAction "BorrarUsuario", oneIteration
