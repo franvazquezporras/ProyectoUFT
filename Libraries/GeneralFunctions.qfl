@@ -25,7 +25,7 @@ Function Setup(BrowserName,UrlTarget)
 End Function
 
 
-Function KillAllBrowser()
+Function KillAllBrowsers()
 	Dim obj_ScriptSell
 	Set obj_ScriptShell = CreateObject("Wscript.Shell")
 	obj_ScriptShell.Run "taskkill /f /im iexplore.exe", 0, true
