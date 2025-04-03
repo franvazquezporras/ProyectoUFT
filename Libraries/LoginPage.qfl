@@ -42,7 +42,7 @@ Function initializeLoginPage()
 	
 	Set C_RememberMeLogin = URL_AdvantageLogin.WebCheckBox("Class Name:=WebCheckBox","name:=remember_me")
 	
-	Set B_SignInLogin = URL_AdvantageLogin.WebButton("Class Name:=WebButton","name;=SIGN IN")
+	Set B_SignInLogin = URL_AdvantageLogin.WebButton("Class Name:=WebButton","name:=SIGN IN")
 	
 	Set L_ForgotPasswordLogin = URL_AdvantageLogin.Link("Class Name:=Link","name:=Forgot your password?")
 	Set L_CreateNewAccountLogin = URL_AdvantageLogin.Link("Class Name:=Link","name:=CREATE NEW ACCOUNT")
