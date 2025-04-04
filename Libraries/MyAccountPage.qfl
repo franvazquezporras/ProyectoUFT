@@ -2,3 +2,71 @@
 Dim URL_AdvantageMyAccount
 
 '=========W_WebElement=========='
+Dim W_NoDeleteAccount, W_YesDeleteAcount, W_CloseDeletePopUp
+Dim W_ChangePassword
+'=============L_WebLink================'
+Dim L_EditMyAccountDetail, L_EditMyAccountPayMethod
+
+'=============C_WebCheckBox==========='
+Dim C_NotifyMeAboutPromo
+Dim C_TabletNotifyPromo, C_LaptopNotifyPromo, C_HeadphoneNotifyPromo, C_SpeakerNotifyPromo, C_MiceNotifyPromo
+Dim C_SaveMasterCredit
+
+'=========B_WebButton=========='
+Dim B_DeleteAcount, B_EditSave, B_EditCardSave
+
+'=========E_WebEdit=========='
+Dim E_EditEmail
+Dim E_EditFirstName, E_EditLastName, E_EditPhoneNumber
+Dim E_EditCity, E_EditAddress, E_EditCodePostal, E_EditState
+Dim E_EditOldPass, E_EditNewPass, E_EditConfirmPass
+Dim E_EditPayUserName, E_EditPayPassword
+Dim E_EditCardNumber, E_EditCvvNumber, E_EditCardHolderName
+
+'=============D_WebList===================='
+Dim D_EditCountry
+Dim D_EditMM, D_EditYYYY
+
+'=========I_Image=========='
+Dim I_SafePay, I_MasterCredit
+
+Function InicializeRegisterPage()
+	Set URL_AdvantageMyAccount = Browser("micclass:=Browser").Page("micclass:=page")
+	
+	Set W_NoDeleteAccount = URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","class:=deletePopupBtn deleteGreen")
+	Set W_YesDeleteAcount = URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","class:=deletePopupBtn deleteRed")
+	Set W_CloseDeletePopUp = URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","class:=closeBtn loginPopUpCloseBtn")
+	Set W_ChangePassword = URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","innertext:=Change password")
+	
+	Set L_EditMyAccountDetail = URL_AdvantageMyAccount.Link("Class Name:=Link","xpath:=//DIV/H3[normalize-space()='Account details Edit']/A[1]")
+	Set L_EditMyAccountPayMethod = URL_AdvantageMyAccount.Link("Class Name:=Link","xpath:=//DIV[@id='myAccountContainer']/DIV[4]/H3[1]/A[1]")
+	
+	Set C_NotifyMeAboutPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=notify_about_promotions")
+	Set C_TabletNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_tablets")
+	Set C_LaptopNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_laptops")
+	Set C_HeadphoneNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_headphones")
+	Set C_SpeakerNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_speakers")
+	Set C_MiceNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_mice")
+	Set C_PayPreferred = URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","innertext:=Set SafePay as your preferred payment ")
+	
+	Set B_DeleteAcount = URL_AdvantageMyAccount.WebButton("Class Name:=WebButton","innertext:=Delete Account ")
+	Set B_EditSave = URL_AdvantageMyAccount.WebButton("Class Name:=WebButton","name:=SAVE")
+	
+	Set E_EditEmail  = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=emailAccountDetails")
+	Set E_EditFirstName = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=first_nameAccountDetails")
+	Set E_EditLastName = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=last_nameAccountDetails")
+	Set E_EditPhoneNumber = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=phone_numberAccountDetails")
+	Set E_EditCity = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=cityAccountDetails")
+	Set E_EditAddress = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=addressAccountDetails")
+	Set E_EditCodePostal = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=postal_codeAccountDetails")
+	Set E_EditState = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=state_/_province_/_regionAccountDetails")
+	Set E_EditOldPass = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","innertext:=Old Password")
+	Set E_EditNewPass = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","innertext:=New Password")
+	Set E_EditConfirmPass = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","innertext:=Confirm New Password")
+	
+	Set D_EditCountry = URL_AdvantageMyAccount.WebList("Class Name:=WebList","name:=countryListboxAccountDetails")
+	
+	Set I_SafePay = URL_AdvantageMyAccount.Image("Class Name:=Image","file name:=SafePay.png")
+	Set I_MasterCredit = URL_AdvantageMyAccount.Image("Class Name:=Image","file name:=Master_credit.png")
+	
+End Function
