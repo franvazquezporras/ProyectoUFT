@@ -76,3 +76,7 @@ Function ReportKO(str_Functionality,str_Msg)
 	ExitTest
 	quit()
 End Function
+
+
+
+
