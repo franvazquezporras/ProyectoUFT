@@ -10,7 +10,7 @@ Dim L_EditMyAccountDetail, L_EditMyAccountPayMethod
 '=============C_WebCheckBox==========='
 Dim C_NotifyMeAboutPromo
 Dim C_TabletNotifyPromo, C_LaptopNotifyPromo, C_HeadphoneNotifyPromo, C_SpeakerNotifyPromo, C_MiceNotifyPromo
-Dim C_SaveMasterCredit
+Dim C_SaveMasterCredit, C_SafePay
 
 '=========B_WebButton=========='
 Dim B_DeleteAcount, B_EditSave, B_EditCardSave
@@ -47,7 +47,8 @@ Function InicializeRegisterPage()
 	Set C_HeadphoneNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_headphones")
 	Set C_SpeakerNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_speakers")
 	Set C_MiceNotifyPromo = URL_AdvantageMyAccount.WebCheckBox("Class Name:=WebCheckBox","name:=category_mice")
-	Set C_PayPreferred = URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","innertext:=Set SafePay as your preferred payment ")
+	Set C_SafePay = URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","name:=preferred_payment_safepay")
+	Set C_SaveMasterCredit =  URL_AdvantageMyAccount.WebElement("Class Name:=WebElement","name:=save_master_credit")
 	
 	Set B_DeleteAcount = URL_AdvantageMyAccount.WebButton("Class Name:=WebButton","innertext:=Delete Account ")
 	Set B_EditSave = URL_AdvantageMyAccount.WebButton("Class Name:=WebButton","name:=SAVE")
@@ -63,10 +64,66 @@ Function InicializeRegisterPage()
 	Set E_EditOldPass = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","innertext:=Old Password")
 	Set E_EditNewPass = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","innertext:=New Password")
 	Set E_EditConfirmPass = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","innertext:=Confirm New Password")
+	Set E_EditPayUserName = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=safepay_username")
+	Set E_EditPayPassword = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=safepay_password")
+	Set E_EditCardNumber = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=card_number")
+	Set E_EditCvvNumber = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=cvv_number")
+	Set E_EditCardHolderName = URL_AdvantageMyAccount.WebEdit("Class Name:=WebEdit","name:=cardholder_name")
 	
 	Set D_EditCountry = URL_AdvantageMyAccount.WebList("Class Name:=WebList","name:=countryListboxAccountDetails")
+	Set D_EditMM = URL_AdvantageMyAccount.WebList("Class Name:=WebList","name:=mmListbox")
+	Set D_EditYYYY = URL_AdvantageMyAccount.WebList("Class Name:=WebList","name:=yyyyListbox")
 	
 	Set I_SafePay = URL_AdvantageMyAccount.Image("Class Name:=Image","file name:=SafePay.png")
 	Set I_MasterCredit = URL_AdvantageMyAccount.Image("Class Name:=Image","file name:=Master_credit.png")
 	
+End Function
+
+
+Function CleanMyAccount()
+	Set URL_AdvantageMyAccount = Nothing
+
+	Set W_NoDeleteAccount = Nothing
+	Set W_YesDeleteAcount = Nothing
+	Set W_CloseDeletePopUp = Nothing
+	Set W_ChangePassword = Nothing
+	
+	Set L_EditMyAccountDetail = Nothing
+	Set L_EditMyAccountPayMethod = Nothing
+	
+	Set C_NotifyMeAboutPromo = Nothing
+	Set C_TabletNotifyPromo = Nothing
+	Set C_LaptopNotifyPromo = Nothing
+	Set C_HeadphoneNotifyPromo = Nothing
+	Set C_SpeakerNotifyPromo = Nothing
+	Set C_MiceNotifyPromo = Nothing
+	Set C_SafePay = Nothing
+	Set C_SaveMasterCredit = Nothing
+	
+	Set B_DeleteAcount = Nothing
+	Set B_EditSave = Nothing
+	
+	Set E_EditEmail = Nothing
+	Set E_EditFirstName = Nothing
+	Set E_EditLastName = Nothing
+	Set E_EditPhoneNumber = Nothing
+	Set E_EditCity = Nothing
+	Set E_EditAddress = Nothing
+	Set E_EditCodePostal = Nothing
+	Set E_EditState = Nothing
+	Set E_EditOldPass = Nothing
+	Set E_EditNewPass = Nothing
+	Set E_EditConfirmPass = Nothing
+	Set E_EditPayUserName = Nothing
+	Set E_EditPayPassword = Nothing
+	Set E_EditCardNumber = Nothing
+	Set E_EditCvvNumber = Nothing
+	Set E_EditCardHolderName = Nothing
+	
+	Set D_EditCountry = Nothing
+	Set D_EditMM = Nothing
+	Set D_EditYYYY = Nothing
+	
+	Set I_SafePay = Nothing
+	Set I_MasterCredit = Nothing
 End Function
