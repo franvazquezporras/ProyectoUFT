@@ -10,6 +10,7 @@ Dim W_OrText
 Dim W_UsernameLoginText, W_PasswordLoginText
 Dim W_RememberMeText
 Dim W_CloseWindowsLogin
+Dim W_IncorrectLoginText, W_EmptyUserText, W_EmptyPasswordText
 
 '=============E_WebEdit================'
 Dim E_UsernameLogin, E_PasswordLogin
@@ -36,6 +37,9 @@ Function initializeLoginPage()
 	Set W_PasswordLoginText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=Password")
 	Set W_RememberMeText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=REMEMBER ME")
 	Set W_CloseWindowsLogin = URL_AdvantageLogin.WebElement("Class Name:=WebElement","class:=closeBtn loginPopUpCloseBtn")
+	Set W_IncorrectLoginText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=Incorrect user name or password.")
+	Set W_EmptyUserText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=Username field is required")
+	Set W_EmptyPasswordText = URL_AdvantageLogin.WebElement("Class Name:=WebElement","innertext:=Password field is required")
 	
 	Set E_UsernameLogin = URL_AdvantageLogin.WebEdit("Class Name:=WebEdit","name:=username")
 	Set E_PasswordLogin = URL_AdvantageLogin.WebEdit("Class Name:=WebEdit","name:=password")
@@ -60,6 +64,9 @@ Function CleanLoginPage()
 	Set W_PasswordLoginText = Nothing
 	Set W_RememberMeText = Nothing
 	Set W_CloseWindowsLogin = Nothing
+	Set W_IncorrectLoginText = Nothing
+	Set W_EmptyUserText = Nothing
+	Set W_EmptyPasswordText = Nothing
 	
 	Set E_UsernameLogin = Nothing
 	Set E_PasswordLogin = Nothing
@@ -70,4 +77,22 @@ Function CleanLoginPage()
 	
 	Set L_ForgotPasswordLogin = Nothing
 	Set L_CreateNewAccountLogin = Nothing
+End Function
+
+
+
+'================Login================'
+Function LoginWithAdmin()
+	DataTable.AddSheet "General"
+	DataTable.ImportSheet "..\DataTables\General.xls", 1, "General"
+	
+	E_UsernameLogin.Set(DataTable("USERNAME", "General"))
+	E_PasswordLogin.SetSecure(DataTable("PASSWORD", "General"))
+	B_SignInLogin.Click
+End Function
+
+Function LoginIncorrecto(usuario,password)
+	E_UsernameLogin.Set(usuario)
+	E_PasswordLogin.SetSecure(password)
+
 End Function
