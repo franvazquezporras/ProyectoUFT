@@ -118,3 +118,23 @@ Function CleanRegisterPage()
 
     Set L_AlreadyHaveAnAccount = Nothing
 End Function
+
+
+Function CrearUsuarioDatos()
+	E_UsernameRegister.Set(DataTable("USERNAME",dtLocalSheet))
+	E_EmailRegister.Set(DataTable("EMAIL",dtLocalSheet))
+	E_PasswordRegister.SetSecure(DataTable("PASSWORD",dtLocalSheet))
+	E_ConfirmPasswordRegister.SetSecure(DataTable("PASSWORD",dtLocalSheet))
+	E_FirstNameRegister.Set(DataTable("FIRSTNAME",dtLocalSheet))
+	E_LastNameRegister.Set(DataTable("LASTNAME",dtLocalSheet))
+	E_PhoneNumberRegister.Set(DataTable("PHONENUMBER",dtLocalSheet))
+	D_CountryRegister.Select DataTable("COUNTRY",dtLocalSheet)
+	E_CityRegister.Set(DataTable("CITY",dtLocalSheet))
+	E_AddressRegister.Set(DataTable("ADDRESS",dtLocalSheet))
+	E_StateRegister.Set(DataTable("STATE",dtLocalSheet))
+	E_PostalCodeRegister.Set(DataTable("POSTALCODE",dtLocalSheet))
+	C_AllowOfferPromotion.Set("ON")
+	C_IAgree.Set("ON")
+	Call WaitExt(2)
+	B_Register.Click
+End Function
