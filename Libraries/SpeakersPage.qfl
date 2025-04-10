@@ -1,0 +1,51 @@
+﻿'=============URL_Page================'
+Dim URL_AdvantageSpeakers 
+
+'=============W_WebElement==========='
+Dim W_SpeakerList ' Quitamos los paréntesis. Es un array pero no se declara con () en VBScript dinámico.
+
+'=============B_WebButton==========='
+Dim B_AddToCart
+
+'=============L_Link================='
+Dim L_Speakers
+
+Function InitializeSpeakersPage
+    Set URL_AdvantageSpeakers = Browser("micclass:=Browser").Page("micclass:=page")
+    
+    ' Crear descripción para buscar productos
+    Dim desc, productItems
+    Set desc = Description.Create()
+    desc("class").Value = "imgProduct"
+
+    ' Obtener los productos
+    Set productItems = URL_AdvantageSpeakers.ChildObjects(desc)
+
+    ' Validar si hay productos
+    If productItems.Count > 0 Then
+        ReDim W_SpeakerList(productItems.Count - 1)
+        For i = 0 To productItems.Count - 1
+            Set W_SpeakerList(i) = productItems(i)
+        Next
+    Else
+        Reporter.ReportEvent micFail, "Error", "No se encontraron productos en la página de speakers"
+        ReDim W_SpeakerList(-1) ' array vacío
+    End If
+
+    ' Otros objetos
+    Set B_AddToCart = URL_AdvantageSpeakers.WebButton("Class Name:=WebButton", "name:=ADD TO CART")
+    Set L_Speakers = URL_AdvantageSpeakers.Link("Class Name:=Link", "name:=SPEAKERS ")
+End Function
+
+Function CleanSpeakersPage
+    Set URL_AdvantageSpeakers = Nothing
+
+    If IsArray(W_SpeakerList) Then
+        For i = 0 To UBound(W_SpeakerList)
+            Set W_SpeakerList(i) = Nothing
+        Next
+    End If
+
+    Set B_AddToCart = Nothing
+    Set L_Speakers = Nothing
+End Function
