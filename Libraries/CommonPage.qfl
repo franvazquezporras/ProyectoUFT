@@ -9,6 +9,7 @@ Dim L_MyAccount, L_MyOrders, L_SignOut
 
 '=========W_WebElement=========='
 Dim W_Search
+Dim W_UserLogged
 
 '=========I_Image=========='
 Dim I_Facebook, I_Twitter, I_Linkedin
@@ -30,6 +31,7 @@ Function initializeCommonPage()
 	Set L_SignOut = URL_AdvantageCommon.Link("Class Name:=Link","name:=Sign out")
 	
 	Set W_Search = URL_AdvantageCommon.WebElement("Class Name:=WebElement","html id:=search")
+	Set W_UserLogged = URL_AdvantageCommon.WebElement("Class Name:=WebElement","xpath:=//A[@id='menuUserLink']/SPAN[1]")
 	
 	Set I_Facebook = URL_AdvantageCommon.Image("Class Name:=Image","file name:=facebook.png")
 	Set I_Twitter = URL_AdvantageCommon.Image("Class Name:=Image","file name:=twitter.png")
@@ -53,6 +55,7 @@ Function CleanCommonPage()
 	Set L_SignOut = Nothing
 	
 	Set W_Search = Nothing
+	Set W_UserLogged = Nothing
 	
 	Set I_Facebook = Nothing
 	Set I_Twitter = Nothing
