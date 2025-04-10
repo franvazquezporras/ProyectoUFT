@@ -8,7 +8,7 @@ Dim W_EmptyCartText
 '=============L_Link==========='
 Dim L_ContinueShopping
 
-Function initializeCommonPage()
+Function InitializeCommonPage()
 	Set URL_AdvantageShoppingCart = Browser("micclass:=Browser").Page("micclass:=page")
 	
 	Set W_ShoppingCartTitle = URL_AdvantageShoppingCart.WebElement("Class Name:=WebElement","xpath:=//DIV[3]/SECTION[1]/ARTICLE[1]/H3[1]")
