@@ -54,12 +54,25 @@ Function WaitExt(i_TimeEntry)
 End Function
 
 
-Function CheckVisibility(WebElement, i_WaitElem )
-	If WebElement.Exist(i_WaitElem) Then
-		ReportOK "Check objects", "The element is visible"
+Function CheckVisibility(WebElement, i_WaitElem)
+    Dim isVisible
+
+    If WebElement.Exist(i_WaitElem) Then
+        On Error Resume Next
+        isVisible = (WebElement.Object.style.display <> "none" And _
+                     WebElement.Object.style.visibility <> "hidden" And _
+                     WebElement.Object.offsetHeight > 0 And _
+                     WebElement.Object.offsetWidth > 0)
+        On Error GoTo 0
+	If isVisible Then
+		ReportOK "Check Object", "El componente se muestra correctamente"
 	Else
-		ReportKO "Check objects", "The element is not visible"
+		ReportKO  "Check Object", "ERROR: No se encuentra el componente"
 	End If
+    Else
+        isVisible = False
+    End If
+    CheckVisibility = isVisible
 End Function
 
 
