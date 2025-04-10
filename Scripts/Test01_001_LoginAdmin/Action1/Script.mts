@@ -11,9 +11,8 @@ initializeLoginPage()
 Call WaitExt(2)
 L_UserMenu.Click
 Call LoginWithAdmin()
-Call WaitExt(1)
-L_UserMenu.Click
-L_SignOut.Click
+
+
 
 CleanHomePage()
 CleanCommonPage()
